@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Question
 from .forms import SurveyFeedback
-from .static.polls.scripts.py import dbConnect
+from .static.polls.scripts.py.dbConnect import *
 # Create your views here.
 
 def index(request):
@@ -24,7 +24,7 @@ def database_Send(request):
     import sys
     from datetime import datetime
 
-    conn_string = "host='172.28.78.195' port='5432' dbname='feedback2' user='andrew' password='password'"
+    conn_string = "host='172.28.43.36' port='5432' dbname='feedback2' user='andrew' password='password'"
 
     form = SurveyFeedback()
     conn = dbConnect(conn_string)
