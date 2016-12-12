@@ -4,6 +4,7 @@ from django.template import loader
 from .models import Question
 from .forms import SurveyFeedback
 from .static.polls.scripts.py.dbConnect import *
+from .static.polls.scripts.py.validation import *
 # Create your views here.
 
 def index(request):
@@ -12,7 +13,6 @@ def index(request):
 
         if form.is_valid():
             return HttpResponseRedirect('/thanks/')
-
 
     else:
         form = SurveyFeedback()
@@ -24,23 +24,26 @@ def database_Send(request):
     import sys
     from datetime import datetime
 
-    conn_string = "host='172.28.43.36' port='5432' dbname='feedback2' user='andrew' password='password'"
+    if request.method == 'POST':
+        form = SurveyFeedback(request.POST)
+        if form.is_valid(): # All validation rules pass
+            ## retrieving form data ##
+            satisfaction = form.cleaned_data['radioFeedback']
+            feedback = form.cleaned_data['textFeedback']
+            date = datetime.now()
 
-    form = SurveyFeedback()
+        else:
+            return HttpResponseRedirect('/index/')
+    conn_string = "host='172.28.46.20' port='5432' dbname='feedback2' user='andrew' password='password'"
     conn = dbConnect(conn_string)
-
-    ## retrieves data from form ##
-    satisfaction = form.satisfaction.data
-    feedback = form.feedback.data
-    date = datetime.now()
 
     ## validation ##
     if (feedbackValidation(feedback) or satisfactionValidation(satisfaction)):
-        return redirect('/index')
+         return redirect('/polls/')
 
     sendData(conn, satisfaction, date, feedback)
 
     conn.close()
     print("done")
 
-    return render_template('polls/index.html')
+    return HttpResponseRedirect('/polls/')
