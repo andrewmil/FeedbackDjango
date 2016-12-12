@@ -1,5 +1,8 @@
 To install required packages run:
-pip install -r requirements.txt
+1. pip install -r requirements.txt
 
-To run the web application on localhost:8000/polls:
-python(3) manage.py
+To run the web application on your own machine:
+1. edit settings.py. Add your own IP address and 'localhost' to ALLOWED_HOSTS
+2. run python(3) manage.py
+3. go to localhost:8000/polls:
+
