@@ -34,7 +34,7 @@ def database_Send(request):
 
         else:
             return HttpResponseRedirect('/index/')
-    conn_string = "host='172.28.46.20' port='5432' dbname='feedback2' user='andrew' password='password'"
+    conn_string = "host='172.28.43.36' port='5432' dbname='feedback2' user='andrew' password='password'"
     conn = dbConnect(conn_string)
 
     ## validation ##
