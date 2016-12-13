@@ -25,7 +25,8 @@ SECRET_KEY = '=v)$%c&#pf3&j@7_#j58minep4+r@sc2de+5hez^7e=niua#a)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.28.100.126', 'localhost']
+# Add your IP address here to use it as a host address for the app
+ALLOWED_HOSTS = ['172.28.100.126', 'localhost', '172.28.43.36']
 
 # Application definition
 
