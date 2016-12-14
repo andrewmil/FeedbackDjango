@@ -1,27 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Question
 from .forms import SurveyFeedback
+from .models import Feedback
 from .static.polls.scripts.py.dbConnect import *
 from .static.polls.scripts.py.validation import *
 # Create your views here.
 
 def index(request):
-    if request.method == 'POST':
-        form = SurveyFeedback(request.POST)
 
-        if form.is_valid():
-            return HttpResponseRedirect('/thanks/')
-
-    else:
-        form = SurveyFeedback()
-
+    form = SurveyFeedback(request.POST)
     return render(request, 'polls/index.html', {'form': form})
 
 def database_Send(request):
-    import psycopg2
-    import sys
+
     from datetime import datetime
 
     if request.method == 'POST':
@@ -31,20 +23,17 @@ def database_Send(request):
             satisfaction = form.cleaned_data['radioFeedback']
             feedback = form.cleaned_data['textFeedback']
             date = datetime.now()
-
         else:
             return HttpResponseRedirect('/index/')
-            
-    conn_string = "host='172.28.43.36' port='5432' dbname='feedback2' user='andrew' password='password'"
-    conn = dbConnect(conn_string)
+
+    print('sending data to database')
+    f = Feedback(surveyid=1, satisfaction=satisfaction, timeentered=date, comment=feedback)
+    f.save()
 
     ## validation ##
     if (feedbackValidation(feedback) or satisfactionValidation(satisfaction)):
          return redirect('/polls/')
 
-    sendData(conn, satisfaction, date, feedback)
-
-    conn.close()
     print("done")
 
     return HttpResponseRedirect('/polls/')
