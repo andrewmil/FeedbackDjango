@@ -13,7 +13,6 @@ def index(request):
     return render(request, 'polls/index.html', {'form': form})
 
 def database_Send(request):
-
     from datetime import datetime
 
     if request.method == 'POST':

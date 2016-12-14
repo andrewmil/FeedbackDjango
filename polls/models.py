@@ -11,11 +11,11 @@ from django.db import models
 
 
 class Feedback(models.Model):
-    surveyid = models.IntegerField()
-    satisfaction = models.CharField(max_length=100)
-    timeentered = models.DateTimeField()
-    comment = models.CharField(max_length=1200, blank=True, null=True)
+    satisfaction = models.CharField(max_length=100, blank=True, null=True)
+    timeentered = models.DateTimeField(blank=True, null=True)
+    comment = models.TextField(blank=True, null=True)
+    surveyid = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'feedback'

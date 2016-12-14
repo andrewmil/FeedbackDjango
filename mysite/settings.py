@@ -26,7 +26,7 @@ SECRET_KEY = '=v)$%c&#pf3&j@7_#j58minep4+r@sc2de+5hez^7e=niua#a)'
 DEBUG = True
 
 # Add your IP address here to use it as a host address for the app
-ALLOWED_HOSTS = ['172.28.100.126', 'localhost', '172.28.43.36']
+ALLOWED_HOSTS = ['172.28.100.126', 'localhost', '172.28.43.36', '172.28.46.20']
 
 # Application definition
 
@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'feedback2',
         'USER': 'andrew',
         'PASSWORD': 'password',
-        'HOST': '172.28.43.36',
+        'HOST': '172.28.100.126',
         'PORT': '',
     }
 }
