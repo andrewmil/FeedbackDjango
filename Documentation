@@ -1,0 +1,39 @@
+Requirements:
+In order to use this application you need to have the required packages installed.
+You can easily install these packages using pip and the given requirements.txt file.
+While in your chosen environment run:
+pip install -r requirements.txt
+
+Starting the app
+To run the app you use the command:
+python(3) manage.py runserver yourip:yourport
+
+If the app compiles successfully you will find feedback form at yourip:yourport/polls.
+
+Database Setup:
+You can configure django to use your own database by editing the mysite/settings.py file.
+By default this application is set to send data to a local postgresql database named feedback2.
+In this file you will find a section that looks like,
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'feedback2',
+        'USER': 'andrew',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+The attributes that you can assign here are mostly self-explanatory and should be filled in appropriately to match your database configuration.
+The ENGINE attribute tells django which kind of database your app will send data to. You can change this by editing the part of the string after backends.
+For example for a MySQL database you would have 'ENGINE': 'django.db.backends.mysql'. You should be able to find the appropriate string ending for your database through google.
+Depending on your choice of database you may have to install extra packages to allow this connection.
+
+Once your configurations are made run:
+python(3) manage.py migrate
+This will update your databases with the necessary extra tables that django requires.
+
+The form of database required is called feedback2 and contains 1 table called feedback.
+The sql query that can create this database in postgresql is given in database.sql
