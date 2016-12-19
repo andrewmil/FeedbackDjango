@@ -7,14 +7,16 @@ from polls.forms import SurveyFeedback
 
 class FeedbackTestCase(TestCase):
     def test_dbconnect(self):
-
         try:
             db_conn = connections['default']
-            c = db_conn.cursor()
-        except OperationalError:
-            connected = False
-        else:
-            connected = True
+            try:
+                c = db_conn.cursor()
+            except OperationalError:
+                connected = False
+            else:
+                connected = True
+        except:
+            print "database failed to connect"
 
     def test_radio_required_valid(self):
         form_data = {'radioFeedback': 'very satisfied', 'textFeedback': ''}
