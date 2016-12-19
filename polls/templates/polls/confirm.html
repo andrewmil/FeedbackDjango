@@ -14,7 +14,7 @@
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'>
   </head>
 
-  <body>
+  <body onload="submit()">
     <div class="container">
       <div class="panel">
         <div class="panel__header survey-header u-cf">
@@ -43,11 +43,7 @@
         <div class="grid__col col-8@s">
           <div role="main" class="panel__body" id="main">
 
-            <form action="/polls/database_Send/" method="POST">
-              {% csrf_token %}
-              {{ form }}
-              <input type="submit" value="Submit" />
-            </form>
+              <h2>Thank you for completing the feedback form</h2>
 
             </div>
           </div>
