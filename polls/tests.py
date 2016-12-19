@@ -15,5 +15,22 @@ class FeedbackTestCase(TestCase):
         else:
             connected = True
 
-    def test_formValidation(self):
-        
+    def test_radio_required_valid(self):
+        form_data = {'radioFeedback': 'very satisfied', 'textFeedback': ''}
+        form = SurveyFeedback(data = form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_radio_required_invalid(self):
+        form_data = {'radioFeedback': '', 'textFeedback': ''}
+        form = SurveyFeedback(data = form_data)
+        self.assertFalse(form.is_valid())
+
+    def test_text_max_valid(self):
+        form_data = {'radioFeedback': 'very satisfied', 'textFeedback': 'test less than 1200 characters'}
+        form = SurveyFeedback(data = form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_text_max_invalid(self):
+        form_data = {'radioFeedback': 'very satisfied', 'textFeedback': 'testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, testing more than 1200 characters, '}
+        form = SurveyFeedback(data = form_data)
+        self.assertFalse(form.is_valid())
