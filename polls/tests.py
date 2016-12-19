@@ -15,8 +15,8 @@ class FeedbackTestCase(TestCase):
                 connected = False
             else:
                 connected = True
-        except:
-            print "database failed to connect"
+        except Exception as e:
+            print "database failed to connect "+e
 
     def test_radio_required_valid(self):
         form_data = {'radioFeedback': 'very satisfied', 'textFeedback': ''}
