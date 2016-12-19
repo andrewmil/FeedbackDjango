@@ -7,8 +7,9 @@ from polls.forms import SurveyFeedback
 
 class FeedbackTestCase(TestCase):
     def test_dbconnect(self):
-        db_conn = connections['default']
+
         try:
+            db_conn = connections['default']
             c = db_conn.cursor()
         except OperationalError:
             connected = False
