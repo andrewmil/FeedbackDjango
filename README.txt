@@ -1,8 +1,24 @@
-To install required packages run:
-1. pip install -r requirements.txt
+Steps to run feedback form locally:
 
-To run the web application on your own machine:
-1. edit settings.py. Add your own IP address and 'localhost' to ALLOWED_HOSTS
-2. run, python(3) manage.py 0.0.0.0:8000 in terminal
-3. go to localhost:8000/polls:
+1. Create and enter a directory:
+	mkdir <directory name>
+	cd <directory name>
+2. Create virtual enviroment:
+	python3 -m venv <viretual env name>
+3. Clone the git repository:
+	git clone https://github.com/andrewmil/FeedbackDjango.git
+4. Activate virtual environment:
+	source django/bin/activate
+5. Install dependencies:
+	cd FeedbackDjango 
+	pip install -r requirements.txt
+6. Run the web application:
+	python3 manage.py runserver
+7. Access the feedback form in your browser:
+	go to localhost:8000/polls:
+	
 
+Setting up alternate database host ip: 
+
+Navigate to “settings.py” file which is in the “mysite” folder in your git respository clone.
+In ‘DATABASES’ change the ‘HOST’ attribute to the alternate host IP address. 
