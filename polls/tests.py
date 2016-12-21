@@ -3,6 +3,7 @@ from polls.models import Feedback
 from django.db import connections
 from polls.forms import SurveyFeedback
 
+
 # Create your tests here.
 
 class FeedbackTestCase(TestCase):
@@ -17,6 +18,18 @@ class FeedbackTestCase(TestCase):
                 connected = True
         except Exception as e:
             print "database failed to connect "+e
+
+    def test_dbinsertion(self):
+        #Insert data into form
+        form_data = {'radioFeedback': 'satisfied', 'textFeedback': 'test db insertion'}
+        #Insert data into database
+        satisfaction = form.cleaned_data['radioFeedback']
+        comment = form.cleaned_data['textFeedback']
+        date = datetime.now()
+        f = Feedback(surveyid=1, satisfaction=satisfaction, timeentered=date, comment=feedback)
+        f.save()
+        #Check data has been inserted correctly
+        Feedback.objects.order_by('timeentered')[0:1].get()
 
     def test_radio_required_valid(self):
         form_data = {'radioFeedback': 'very satisfied', 'textFeedback': ''}
