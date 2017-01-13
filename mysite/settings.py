@@ -26,7 +26,7 @@ SECRET_KEY = '=v)$%c&#pf3&j@7_#j58minep4+r@sc2de+5hez^7e=niua#a)'
 DEBUG = True
 
 # Add your IP address here to use it as a host address for the app
-ALLOWED_HOSTS = ['172.28.100.126', 'localhost', '172.28.43.36', '172.28.46.20', '172.28.52.41']
+ALLOWED_HOSTS = ['172.28.100.126', 'localhost', '172.28.43.36', '172.28.46.20', '172.28.52.41', '172.28.78.126']
 
 # Application definition
 
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'feedback2',
+        'NAME': 'newfeedback',
         'USER': 'andrew',
         'PASSWORD': 'password',
-        'HOST': '172.28.52.41',
+        'HOST': '172.28.78.126',
         'PORT': '',
     }
 }
