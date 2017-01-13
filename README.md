@@ -29,7 +29,7 @@ If you want the site to be accessible from other machines you'll have to add you
 
 ALLOWED_HOSTS=['172.28.XXX.XXX', 'localhost']
 
-'localhost should also be in this array.
+'localhost' should also be in this array.
 #### Database Configuration
 Further down in the 'settings.py' file you'll find a piece of JSON data that looks like:
 
