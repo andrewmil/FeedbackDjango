@@ -1,7 +1,7 @@
 from django.test import TestCase
-from polls.models import Feedback
+from feedback.models import Feedback
 from django.db import connections
-from polls.forms import SurveyFeedback
+from feedback.forms import SurveyFeedback
 
 
 # Create your tests here.

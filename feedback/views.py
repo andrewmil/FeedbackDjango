@@ -1,15 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from .forms import SurveyFeedback
 from .models import Feedback
-# from .static.polls.scripts.py.dbConnect import *
-# from .static.polls.scripts.py.validation import *
+
 # Create your views here.
 
 def index(request):
 
     form = SurveyFeedback(request.POST)
-    return render(request, 'polls/index.html', {'form': form})
+    return render(request, 'feedback/index.html', {'form': form})
 
 def database_Send(request):
     from datetime import datetime
@@ -28,9 +27,5 @@ def database_Send(request):
     f = Feedback(surveyid=1, satisfaction=satisfaction, timeentered=date, comment=feedback)
     f.save()
 
-    ## validation ##
-    # if (feedbackValidation(feedback) or satisfactionValidation(satisfaction)):
-    #      return redirect('/polls/')
-
     print("done")
-    return render(request, 'polls/confirm.html')
+    return render(request, 'feedback/confirm.html')

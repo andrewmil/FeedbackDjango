@@ -26,12 +26,12 @@ SECRET_KEY = '=v)$%c&#pf3&j@7_#j58minep4+r@sc2de+5hez^7e=niua#a)'
 DEBUG = True
 
 # Add your IP address here to use it as a host address for the app
-ALLOWED_HOSTS = ['172.28.100.126', 'localhost', '172.28.43.36', '172.28.46.20', '172.28.52.41', '172.28.78.126']
+ALLOWED_HOSTS = ['localhost', '172.28.81.112']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
+    'feedback.apps.FeedbackConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'newfeedback',
         'USER': 'andrew',
         'PASSWORD': 'password',
-        'HOST': '172.28.78.126',
+        'HOST': '172.28.81.112',
         'PORT': '',
     }
 }

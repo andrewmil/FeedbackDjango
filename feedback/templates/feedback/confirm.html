@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Feedback</title>
-    <link rel= "stylesheet" type= "text/css" href= "{% static 'polls/css/main.css' %}" />
-    <link rel= "stylesheet" type= "text/css" href= "{% static 'polls/css/responsive.css'  %}" />
+    <link rel= "stylesheet" type= "text/css" href= "{% static 'feedback/css/main.css' %}" />
+    <link rel= "stylesheet" type= "text/css" href= "{% static 'feedback/css/responsive.css'  %}" />
     <link rel="canonical" href="http://onsdigital.github.io/eq-prototypes/ukis/v2/index/">
     <link rel="alternate" type="application/rss+xml" title="eQ Prototypes" href="http://onsdigital.github.io/eq-prototypes/feed.xml">
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:300,400,600,700,900'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'>
   </head>
 
-  <body>
+  <body onload="submit()">
     <div class="container">
       <div class="panel">
         <div class="panel__header survey-header u-cf">
@@ -43,11 +43,7 @@
         <div class="grid__col col-8@s">
           <div role="main" class="panel__body" id="main">
 
-            <form action="/polls/database_Send/" method="POST">
-              {% csrf_token %}
-              {{ form }}
-              <input type="submit" value="Submit" />
-            </form>
+              <h2>Thank you for completing the feedback form</h2>
 
             </div>
           </div>
