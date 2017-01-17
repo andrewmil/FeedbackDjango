@@ -12,6 +12,7 @@
     <link rel="alternate" type="application/rss+xml" title="eQ Prototypes" href="http://onsdigital.github.io/eq-prototypes/feed.xml">
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:300,400,600,700,900'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'>
+    <script src="{% static 'feedback/js/jscode.js' %}"></script>
   </head>
 
   <body>
@@ -48,6 +49,8 @@
               {{ form }}
               <input type="submit" value="Submit" />
             </form>
+
+            <p id="chars"></p>
 
             </div>
           </div>
