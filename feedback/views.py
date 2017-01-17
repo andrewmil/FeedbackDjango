@@ -14,7 +14,7 @@ def database_Send(request):
     from datetime import datetime
 
     if request.method == 'POST':
-        form = SurveyFeedback(request.POST)
+        form = SurdjangoveyFeedback(request.POST)
         if form.is_valid(): ## All validation rules pass
             ## retrieving form data ##
             satisfaction = form.cleaned_data['radioFeedback']
