@@ -2,21 +2,22 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import SurveyFeedback
 from .models import Feedback
-
 # Create your views here.
+
 
 def index(request):
 
     form = SurveyFeedback(request.POST)
     return render(request, 'feedback/index.html', {'form': form})
 
+
 def database_Send(request):
     from datetime import datetime
 
     if request.method == 'POST':
-        form = SurdjangoveyFeedback(request.POST)
-        if form.is_valid(): ## All validation rules pass
-            ## retrieving form data ##
+        form = SurveyFeedback(request.POST)
+        if form.is_valid(): # All validation rules pass
+            # retrieving form data ##
             satisfaction = form.cleaned_data['radioFeedback']
             feedback = form.cleaned_data['textFeedback']
             date = datetime.now()
