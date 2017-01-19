@@ -13,6 +13,7 @@
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:300,400,600,700,900'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'>
     <script src="{% static 'feedback/js/jscode.js' %}"></script>
+    <link rel="icon" type="image/png" href="../../static/eq.png">
 </head>
 
 <body>
@@ -37,7 +38,6 @@
             </div>
         </div>
     </div>
-
     <div class="container">
         <br/>
         <div class="bar" role="banner">
@@ -46,38 +46,46 @@
                 <h1 class="bar__title venus">Feedback</h1>
             </div>
         </div>
+        <h3> Response Guidance </h3>
+        <!-- Start: @panels--warn -->
+        <div class="alert alert--simple alert--warn">
+            <div class="alert__header">
+                <ul class="list list--bare list--errors">
+                    <li class="list__item mars"></li>
+                </ul>
+            </div>
+            <div class="alert__body">
+                Please do not enter any Personal or Sensitive data. </br>
+                Please do not enter anything that you would not be prepared to publish.
+            </div>
+        </div>
+        </br>
         <div class="grid ">
             <div class="grid__col col-8@s">
-
                 <div role="main" class="panel__body" id="main">
-
                     <form action="/feedback/database_Send/" method="POST">
-                        {% csrf_token %}
-                        {{ form }}
+                        {% csrf_token %} {{ form }}
                         <!-- Start: @button--button -->
                         </br>
                         </br>
                         <button class="btn ">Submit</button>
                     </form>
                     <p id="chars"></p>
-                    <h3>Warning</h3>
-                    <!-- Start: @panels--warn -->
-                    <div class="alert alert--simple alert--warn">
-                        <div class="alert__header">
-                            <ul class="list list--bare list--errors">
-                                <li class="list__item mars"></li>
-                            </ul>
-                        </div>
-                        <div class="alert__body">
-                            Please do not enter Personal or Sensitive data. </br>
-                            Please do not enter anything that you would not be prepared to publish.
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div>
-        </div>
+      </div>
+
+
+          <!-- Footer.hbs -->
+
+          <div class="footer page__footer" role="contentinfo">
+              <div class="container">
+                  <div class="pluto">© <a href="https://www.ons.gov.uk/" target="_blank">Office for National Statistics 2016</a></div>
+              </div>
+          </div>
+
+          <!-- /footer.hbs -->
 
 </body>
 
