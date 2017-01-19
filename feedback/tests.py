@@ -8,7 +8,7 @@ from django.test import LiveServerTestCase
 class LiveFeedbackTestCase(LiveServerTestCase):
 
     def test_textbox_length(self):
-        driver = webdriver.Chrome("/Users/millaa/Documents/FeedbackForms/Websites/Django/FeedbackDjango/chromedriver")
+        driver = webdriver.Chrome("/Users/irving/Documents/ve/FeedbackDjango/chromedriver")
         driver.get('{0}/feedback'.format(self.live_server_url))
 
         text_box = driver.find_element_by_id('id_textFeedback')
