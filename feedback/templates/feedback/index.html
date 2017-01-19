@@ -40,17 +40,23 @@
 
     <div class="container">
         <br/>
-        <h1>Give Feedback</h1>
+        <div class="bar" role="banner">
+            <div class="bar__inner container">
+                <div class="badge badge--amber u-mr-xs">beta</div>
+                <h1 class="bar__title venus">Feedback</h1>
+            </div>
+        </div>
         <div class="grid ">
             <div class="grid__col col-8@s">
 
                 <div role="main" class="panel__body" id="main">
 
                     <form action="/feedback/database_Send/" method="POST">
-                        {% csrf_token %} {{ form }}
+                        {% csrf_token %}
+                        {{ form }}
                         <!-- Start: @button--button -->
-                      </br>
-                      </br>
+                        </br>
+                        </br>
                         <button class="btn ">Submit</button>
                     </form>
                     <p id="chars"></p>
@@ -66,7 +72,7 @@
                             Please do not enter Personal or Sensitive data. </br>
                             Please do not enter anything that you would not be prepared to publish.
                         </div>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
