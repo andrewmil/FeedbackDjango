@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'newfeedback',
         'USER': 'andrew',
         'PASSWORD': 'password',
-        'HOST': '172.28.81.112',
+        'HOST': '172.28.94.62',
         'PORT': '',
     }
 }
