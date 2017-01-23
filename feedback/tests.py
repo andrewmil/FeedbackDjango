@@ -4,6 +4,7 @@ from django.db import connections
 from feedback.forms import SurveyFeedback
 from selenium import webdriver
 from django.test import LiveServerTestCase
+from django.conf import settings
 
 class LiveFeedbackTestCase(LiveServerTestCase):
 
@@ -12,12 +13,12 @@ class LiveFeedbackTestCase(LiveServerTestCase):
         driver.get('{0}/feedback'.format(self.live_server_url))
 
         text_box = driver.find_element_by_id('id_textFeedback')
-        for i in range(0, 1201):
+        for i in range(0, settings.MAX_CHARS+1):
             text_box.send_keys('a')
 
         text_box = driver.find_element_by_id('id_textFeedback')
         length = len(text_box.get_attribute('value'))
-        self.assertEqual(length, 1200)
+        self.assertEqual(length, settings.MAX_CHARS)
 
 class FeedbackTestCase(TestCase):
     def test_dbconnect(self):
